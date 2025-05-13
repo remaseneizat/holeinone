@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- تحديد الترميز المستخدم في الصفحة -->
+    <meta charset="UTF-8">
+    <!-- ضبط إعدادات العرض للتوافق مع الأجهزة المختلفة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان الصفحة الذي سيظهر في شريط المتصفح -->
+    <title>منتجع هول إن ون - الحجز</title>
+    <style>
+        /* تنسيق تفاصيل الجسم العامة */
+        body {
+            font-family: Arial, sans-serif; /* نوع الخط المستخدم */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            background-color: #645862; /* لون خلفية الصفحة */
+            text-align: center; /* محاذاة النص في الوسط */
+            transition: transform 0.3s ease-in-out; /* تأثير التحجيم عند التغيير */
+        }
+
+        /* تنسيق الهيدر */
+        header {
+            background: #c5afcc; /* لون خلفية الهيدر */
+            color: white; /* لون النص داخل الهيدر */
+            padding: 20px; /* حشوة داخل الهيدر */
+            border-bottom: 2px solid #9e7c7c; /* حدود تحت الهيدر */
+            display: flex; /* استخدام الفليكس لترتيب العناصر في صف */
+            justify-content: space-between; /* توزيع العناصر بين الجانبين */
+            align-items: center; /* محاذاة العناصر رأسياً في المنتصف */
+            flex-wrap: wrap; /* لف العناصر إذا لزم الأمر */
+        }
+
+        /* تنسيق عنوان الهيدر */
+        header h1 {
+            font-size: 1.5em; /* حجم الخط */
+            margin: 0; /* إزالة الهوامش */
+        }
+
+        /* تنسيق قائمة التنقل */
+        nav {
+            background: none; /* عدم وجود لون خلفية */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            display: flex; /* استخدام الفليكس لترتيب العناصر */
+            justify-content: center; /* محاذاة العناصر في الوسط */
+            align-items: center; /* محاذاة العناصر رأسياً */
+            width: 100%; /* عرض القائمة بالكامل */
+        }
+
+        /* تنسيق قائمة العناصر في التنقل */
+        nav ul {
+            list-style: none; /* إزالة النقاط من القائمة */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            display: flex; /* استخدام الفليكس لتوزيع العناصر */
+            gap: 15px; /* الفجوة بين العناصر */
+        }
+
+        /* تنسيق كل عنصر في القائمة */
+        nav ul li {
+            display: inline; /* عرض العناصر في صف */
+        }
+
+        /* تنسيق الروابط داخل القائمة */
+        nav ul li a {
+            text-decoration: none; /* إزالة خط تحت النص */
+            color: white; /* لون النص */
+            font-weight: bold; /* سمك الخط */
+            padding: 10px 20px; /* حشوة داخل الرابط */
+            border-radius: 25px; /* زوايا دائرية لكل رابط */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج الألوان في الخلفية */
+            transition: transform 0.3s, background 0.3s; /* تأثير التحجيم وتغيير الخلفية */
+        }
+
+        /* تأثير عند التمرير فوق الروابط */
+        nav ul li a:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغير لون الخلفية */
+            transform: scale(1.1); /* تكبير الرابط عند التمرير */
+        }
+
+        /* زر القائمة في الهيدر */
+        .menu-toggle {
+            display: none; /* إخفاء الزر بشكل افتراضي */
+            background-color: #9e7c7c; /* لون خلفية الزر */
+            color: white; /* لون نص الزر */
+            border: none; /* إزالة الحدود */
+            padding: 10px 15px; /* حشوة داخل الزر */
+            border-radius: 50%; /* شكل دائري للزر */
+            font-size: 1.5em; /* حجم خط الزر */
+            cursor: pointer; /* تغيير شكل المؤشر عند مرور الماوس */
+            transition: background 0.3s, transform 0.3s; /* تأثير عند التمرير فوق الزر */
+        }
+
+        /* تأثير عند التمرير فوق زر القائمة */
+        .menu-toggle:hover {
+            background: #645862; /* تغير لون خلفية الزر */
+            transform: scale(1.1); /* تكبير الزر عند التمرير */
+        }
+
+        /* تنسيق عناصر التحكم في التكبير والتصغير */
+        .controls {
+            display: flex; /* استخدام الفليكس لعرض الأزرار في صف */
+            gap: 10px; /* الفراغ بين الأزرار */
+        }
+
+        /* تنسيق الأزرار داخل عناصر التحكم */
+        .controls button {
+            background: #9e7c7c; /* لون خلفية الزر */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            padding: 10px 15px; /* حشوة داخل الزر */
+            border-radius: 50%; /* شكل دائري للزر */
+            width: 40px; /* عرض الزر */
+            height: 40px; /* ارتفاع الزر */
+            display: flex; /* استخدام الفليكس لجعل النص في منتصف الزر */
+            align-items: center; /* محاذاة العناصر رأسياً */
+            justify-content: center; /* محاذاة العناصر أفقياً */
+            cursor: pointer; /* تغيير شكل المؤشر عند مرور الماوس */
+            transition: background 0.3s, transform 0.3s; /* تأثير عند التمرير فوق الزر */
+            font-size: 1.2em; /* حجم الخط */
+        }
+
+        /* تأثير عند التمرير فوق أزرار التحكم */
+        .controls button:hover {
+            background: #645862; /* تغير لون خلفية الزر */
+            transform: scale(1.1); /* تكبير الزر عند التمرير */
+        }
+
+        /* تنسيق نموذج الحجز */
+        .booking-form {
+            margin-top: 20px; /* المسافة من أعلى */
+            background-color: white; /* لون خلفية النموذج */
+            padding: 20px; /* حشوة داخل النموذج */
+            border-radius: 8px; /* زوايا دائرية للنموذج */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل حول النموذج */
+            width: 50%; /* عرض النموذج */
+            margin: 0 auto; /* محاذاة النموذج في الوسط */
+        }
+
+        /* تنسيق تسميات النموذج */
+        .booking-form label {
+            display: block; /* جعل التسمية عنصر كتلة */
+            font-weight: bold; /* سمك الخط */
+            margin-top: 10px; /* المسافة من الأعلى */
+        }
+
+        /* تنسيق عناصر النموذج العامة */
+        .booking-form input, .booking-form select, .booking-form button {
+            padding: 10px; /* حشوة داخل العناصر */
+            margin: 10px 0; /* المسافة الرأسية بين العناصر */
+            width: 100%; /* عرض كافة العناصر بالكامل */
+            font-size: 1em; /* حجم الخط */
+            border: 1px solid #ddd; /* حدود حول العناصر */
+            border-radius: 5px; /* زوايا دائرية للعناصر */
+        }
+
+        /* تنسيق زر الإرسال في النموذج */
+        .booking-form button {
+            background-color: #645862; /* لون خلفية الزر */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            cursor: pointer; /* تغيير شكل المؤشر عند مرور الماوس */
+            transition: background-color 0.3s; /* تأثير عند التمرير فوق الزر */
+        }
+
+        /* تأثير عند التمرير فوق زر الإرسال */
+        .booking-form button:hover {
+            background-color: #9e7c7c; /* تغير لون خلفية الزر */
+        }
+
+        /* استعلامات الوسائط لتحسين التوافق مع الأجهزة المحمولة */
+        @media (max-width: 768px) {
+            /* تعديل حجم خط الهيدر على الشاشات الصغيرة */
+            header h1 {
+                font-size: 1.2em; /* حجم الخط */
+            }
+
+            /* تعديل حجم الأزرار في عناصر التحكم على الشاشات الصغيرة */
+            .controls button {
+                font-size: 1em; /* حجم الخط */
+                width: 40px; /* عرض الزر */
+                height: 40px; /* ارتفاع الزر */
+            }
+
+            /* تعديل عرض نموذج الحجز على الشاشات الصغيرة */
+            .booking-form {
+                width: 80%; /* عرض أكبر للنموذج */
+            }
+
+            /* إخفاء القائمة التقليدية على الأجهزة المحمولة */
+            nav ul {
+                display: none; /* إخفاء القائمة على الشاشات الصغيرة */
+            }
+
+            /* عرض زر القائمة في الأجهزة المحمولة */
+            .menu-toggle {
+                display: block; /* إظهار الزر */
+            }
+
+            /* عرض القائمة المنسدلة عند الضغط على زر "قائمة" */
+            nav ul.show {
+                display: flex; /* عرض القائمة */
+                flex-direction: column; /* جعل العناصر عمودي */
+                align-items: center; /* محاذاة العناصر في الوسط */
+                gap: 15px; /* الفراغ بين العناصر */
+            }
+        }
+
+        /* استعلامات الوسائط لتحسين التوافق على الشاشات الأصغر */
+        @media (max-width: 480px) {
+            /* تعديل حجم خط الهيدر على الشاشات الأصغر */
+            header h1 {
+                font-size: 1.1em; /* حجم الخط */
+            }
+
+            /* تعديل عرض نموذج الحجز على الشاشات الأصغر */
+            .booking-form {
+                width: 90%; /* عرض أكبر للنموذج */
+            }
+        }
+    </style>
+    <script>
+        // إعداد مستوى التكبير الافتراضي
+        let zoomLevel = 1;
+
+        // دالة لتكبير المحتوى
+        function zoomIn() {
+            zoomLevel += 0.1; // زيادة مستوى التكبير
+            updateZoom(); // تحديث التكبير
+        }
+
+        // دالة لتصغير المحتوى
+        function zoomOut() {
+            zoomLevel -= 0.1; // تقليل مستوى التكبير
+            updateZoom(); // تحديث التكبير
+        }
+
+        // دالة لتحديث التكبير أو التصغير
+        function updateZoom() {
+            document.body.style.transform = `scale(${zoomLevel})`; // تطبيق مستوى التكبير على الجسم
+            document.body.style.transformOrigin = 'top center'; // تحديد نقطة الأصل للتكبير
+        }
+
+        // دالة لتبديل رؤية القائمة على الهواتف المحمولة
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul'); // تحديد القائمة
+            menu.classList.toggle('show'); // تبديل الحالة لعرض القائمة
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>منتجع هول إن ون - الحجز</h1> <!-- عنوان الصفحة داخل الهيدر -->
+    <nav>
+        <ul> <!-- قائمة التنقل -->
+            <li><a href="index.html" id="homeLink">الصفحة الرئيسية</a></li>
+            <li><a href="e.html" id="packagesLink">الباقات</a></li> <!-- رابط الباقات -->
+            <li><a href="facilities.html" id="facilitiesLink">المرافق</a></li> <!-- رابط المرافق -->
+            <li><a href="booking.html" id="bookingLink">الحجز</a></li> <!-- رابط الحجز -->
+            <li><a href="contact.html" id="contactLink">التواصل</a></li> <!-- رابط التواصل -->
+            <li><a href="Shop.html" data-key="store">المتجر</a></li> <!-- رابط المتجر -->
+            <li><a href="faq.html">الأسئلة الشائعة</a></li> <!-- رابط الأسئلة الشائعة -->
+            <li><a href="terms.html">الشروط والأحكام</a></li> <!-- رابط الشروط والأحكام -->
+        </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button> <!-- زر لتبديل القائمة المنسدلة -->
+    <div class="controls"> <!-- عناصر التحكم في التكبير والتصغير -->
+        <button onclick="zoomIn()">+</button> <!-- زر لتكبير المحتوى -->
+        <button onclick="zoomOut()">-</button> <!-- زر لتصغير المحتوى -->
+    </div>
+</header>
+
+<div class="booking-form"> <!-- نموذج الحجز -->
+    <h3>احجز إقامتك</h3> <!-- عنوان نموذج الحجز -->
+    <form action="booking-confirmation.html" method="POST"> <!-- بداية نموذج الإرسال -->
+        <label for="name">الاسم الكامل:</label> <!-- تسمية حقل الاسم -->
+        <input type="text" id="name" name="name" required> <!-- حقل إدخال الاسم -->
+
+        <label for="email">عنوان البريد الإلكتروني:</label> <!-- تسمية حقل البريد الإلكتروني -->
+        <input type="email" id="email" name="email" required> <!-- حقل إدخال البريد الإلكتروني -->
+
+        <label for="phone">رقم الهاتف:</label> <!-- تسمية حقل الهاتف -->
+        <input type="tel" id="phone" name="phone" required> <!-- حقل إدخال رقم الهاتف -->
+
+        <label for="package">اختر الباقة:</label> <!-- تسمية حقل الباقة -->
+        <select name="package" id="package"> <!-- قائمة منسدلة لاختيار الباقة -->
+            <option value="Luxury Golf Experience">تجربة جولف فاخرة</option>
+            <option value="Weekend Getaway">إجازة نهاية الأسبوع</option>
+            <option value="Relaxation Break">استراحة للاسترخاء</option>
+        </select>
+
+        <label for="date">اختر التاريخ:</label> <!-- تسمية حقل التاريخ -->
+        <input type="date" id="date" name="date" required> <!-- حقل إدخال لتاريخ الحجز -->
+
+        <label for="numGuests">عدد الضيوف:</label> <!-- تسمية حقل عدد الضيوف -->
+        <input type="number" id="numGuests" name="numGuests" min="1" required> <!-- حقل إدخال لعدد الضيوف -->
+
+        <button type="submit">احجز الآن</button> <!-- زر لإرسال النموذج -->
+    </form> <!-- نهاية نموذج الإرسال -->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- تعيين ترميز النص ليتناسب مع اللغة العربية -->
+    <meta charset="UTF-8">
+    <!-- إعدادات العرض للأجهزة المحمولة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان الصفحة الذي يظهر في شريط المتصفح -->
+    <title>تأكيد الحجز - منتجع  هول إن ون </title>
+    <style>
+        /* تنسيق الجسم العام للصفحة */
+        body {
+            font-family: Arial, sans-serif; /* نوع الخط */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            background-color: #645862; /* لون خلفية الصفحة */
+            text-align: center; /* محاذاة النص في الوسط */
+            transition: transform 0.3s ease-in-out; /* تأثير التحجيم عند التغيير */
+        }
+
+        /* تنسيق الهيدر */
+        header {
+            background: #c5afcc; /* لون خلفية الهيدر */
+            color: white; /* لون النص داخل الهيدر */
+            padding: 20px; /* حشوة داخل الهيدر */
+            display: flex; /* استخدام الفليكس لإدارة التخطيط */
+            flex-direction: column; /* ترتيب العناصر عموديًا */
+            justify-content: center; /* محاذاة العناصر عموديًا */
+            align-items: center; /* محاذاة العناصر بشكل مركزي */
+            border-bottom: 2px solid #9e7c7c; /* حدود أسفل الهيدر */
+            width: 100%; /* عرض كامل للهيدر */
+        }
+
+        /* تنسيق عنوان الهيدر */
+        header h1 {
+            font-size: 2em; /* حجم الخط */
+            margin: 0; /* إزالة الهوامش */
+        }
+
+        /* تنسيق قائمة التنقل */
+        nav {
+            background: none; /* عدم وجود لون خلفية */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            display: flex; /* استخدام الفليكس لتوزيع العناصر */
+            justify-content: center; /* محاذاة العناصر في وسط القائمة */
+            align-items: center; /* محاذاة العناصر رأسياً */
+            width: 100%; /* عرض القائمة بالكامل */
+        }
+
+        /* تنسيق قائمة العناصر في التنقل */
+        nav ul {
+            list-style: none; /* إزالة النقاط من القائمة */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            display: flex; /* استخدام الفليكس لتوزيع العناصر داخل القائمة */
+            gap: 15px; /* الفجوة بين عناصر القائمة */
+        }
+
+        /* تنسيق كل عنصر في القائمة */
+        nav ul li {
+            display: inline; /* عرض العناصر في صف */
+        }
+
+        /* تنسيق الروابط داخل القائمة */
+        nav ul li a {
+            text-decoration: none; /* إزالة الخط تحت النص */
+            color: white; /* لون النص */
+            font-weight: bold; /* سمك الخط */
+            padding: 10px 20px; /* حشوة داخل الرابط */
+            border-radius: 25px; /* زوايا دائرية للرابط */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج الألوان للخلفية */
+            transition: transform 0.3s, background 0.3s; /* تأثير التحجيم وتغيير الخلفية */
+        }
+
+        /* تأثير عند التمرير فوق الروابط */
+        nav ul li a:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير لون الخلفية عند التمرير */
+            transform: scale(1.1); /* تكبير الرابط */
+        }
+
+        /* زر القائمة المنسدلة */
+        .menu-toggle {
+            display: none; /* إخفاء الزر بشكل افتراضي */
+            background-color: #9e7c7c; /* لون خلفية الزر */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            padding: 10px 15px; /* حشوة داخل الزر */
+            border-radius: 50%; /* شكل دائري للزر */
+            font-size: 1.5em; /* حجم خط الزر */
+            cursor: pointer; /* تغيير شكل المؤشر عند المرور */
+            transition: background 0.3s, transform 0.3s; /* تأثير عند التمرير فوق الزر */
+        }
+
+        /* تأثير عند التمرير فوق زر القائمة */
+        .menu-toggle:hover {
+            background: #645862; /* تغيير لون الخلفية عند التمرير */
+            transform: scale(1.1); /* تكبير الزر */
+        }
+
+        /* تنسيق رسالة التأكيد */
+        .confirmation-message {
+            background-color: white; /* لون خلفية الرسالة */
+            padding: 20px; /* حشوة داخل الرسالة */
+            border-radius: 8px; /* زوايا دائرية للرسالة */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل حول الرسالة */
+            width: 50%; /* عرض الرسالة */
+            margin: 0 auto; /* محاذاة الرسالة في الوسط */
+            margin-top: 50px; /* المسافة من الأعلى */
+        }
+
+        /* تنسيق عنوان رسالة التأكيد */
+        .confirmation-message h2 {
+            color: #645862; /* لون النص */
+        }
+
+        /* تنسيق نصوص رسالة التأكيد */
+        .confirmation-message p {
+            font-size: 1.2em; /* حجم النص */
+            color: #555; /* لون النص */
+        }
+
+        /* تنسيق تفاصيل الرسالة */
+        .confirmation-message .details {
+            margin-top: 20px; /* المسافة من الأعلى */
+            font-size: 1.1em; /* حجم النص */
+            color: #6c4f98; /* لون النص */
+        }
+
+        /* تنسيق زر الذهاب */
+        .confirmation-message button {
+            padding: 10px 20px; /* حشوة داخل الزر */
+            font-size: 1em; /* حجم خط الزر */
+            background-color: #645862; /* لون خلفية الزر */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            border-radius: 5px; /* زوايا دائرية للزر */
+            cursor: pointer; /* تغيير شكل المؤشر عند المرور */
+            transition: background-color 0.3s; /* تأثير عند التمرير فوق الزر */
+        }
+
+        /* تأثير عند التمرير فوق زر الذهاب */
+        .confirmation-message button:hover {
+            background-color: #9e7c7c; /* تغيير لون الخلفية عند التمرير */
+        }
+
+        /* تنسيق عناصر التحكم في التكبير والتصغير */
+        .controls {
+            position: fixed; /* وضع الأزرار بشكل ثابت */
+            top: 10px; /* الموقع من الأعلى */
+            right: 10px; /* الموقع من اليمين */
+            display: flex; /* استخدام الفليكس لترتيب الأزرار */
+            gap: 10px; /* الفجوة بين الأزرار */
+        }
+
+        /* تنسيق الأزرار داخل عناصر التحكم */
+        .controls button {
+            background: #9e7c7c; /* لون خلفية الزر */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            padding: 10px 15px; /* حشوة داخل الزر */
+            border-radius: 50%; /* شكل دائري للزر */
+            width: 40px; /* عرض الزر */
+            height: 40px; /* ارتفاع الزر */
+            display: flex; /* استخدام الفليكس لجعل النص في وسط الزر */
+            align-items: center; /* محاذاة العناصر رأسياً */
+            justify-content: center; /* محاذاة العناصر أفقياً */
+            cursor: pointer; /* تغيير شكل المؤشر عند المرور */
+            transition: background 0.3s, transform 0.3s; /* تأثير عند التمرير فوق الزر */
+            font-size: 1.2em; /* حجم خط الزر */
+        }
+
+        /* تأثير عند التمرير فوق أزرار التحكم */
+        .controls button:hover {
+            background: #645862; /* تغيير لون الخلفية عند التمرير */
+            transform: scale(1.1); /* تكبير الزر */
+        }
+
+        /* استعلامات الوسائط لتحسين التوافق مع الأجهزة المحمولة */
+        @media (max-width: 768px) {
+            /* تعديل حجم خط الهيدر على الشاشات الصغيرة */
+            header h1 {
+                font-size: 1.5em; /* حجم الخط */
+            }
+
+            /* تعديل عرض رسالة التأكيد على الشاشات الصغيرة */
+            .confirmation-message {
+                width: 80%; /* عرض أكبر للرسالة */
+            }
+
+            /* إخفاء القائمة التقليدية على الأجهزة المحمولة */
+            nav ul {
+                display: none; /* إخفاء القائمة */
+            }
+
+            /* عرض زر القائمة في الأجهزة المحمولة */
+            .menu-toggle {
+                display: block; /* إظهار الزر */
+            }
+
+            /* عرض القائمة المنسدلة عند الضغط على زر "قائمة" */
+            nav ul.show {
+                display: flex; /* عرض القائمة */
+                flex-direction: column; /* ترتيب العناصر عموديًا */
+                align-items: center; /* محاذاة العناصر في الوسط */
+                gap: 15px; /* الفجوة بين العناصر */
+            }
+        }
+
+        /* تنسيق إضافي لتحسين التوافق على الشاشات الأصغر */
+        @media (max-width: 480px) {
+            /* تعديل حجم خط الهيدر على الشاشات الأصغر */
+            header h1 {
+                font-size: 1.2em; /* حجم الخط */
+            }
+
+            /* تعديل عرض رسالة التأكيد على الشاشات الأصغر */
+            .confirmation-message {
+                width: 90%; /* عرض أكبر للرسالة */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>منتجع هول إن ون - تأكيد الحجز</h1> <!-- عنوان الصفحة داخل الهيدر -->
+    <nav>
+        <ul> <!-- قائمة التنقل -->
+            <li><a href="index.html" id="homeLink">الصفحة الرئيسية</a></li>
+            <li><a href="e.html" id="packagesLink">الباقات</a></li> <!-- رابط الباقات -->
+            <li><a href="facilities.html" id="facilitiesLink">المرافق</a></li> <!-- رابط المرافق -->
+            <li><a href="booking.html" id="bookingLink">الحجز</a></li> <!-- رابط الحجز -->
+            <li><a href="contact.html" id="contactLink">التواصل</a></li> <!-- رابط التواصل -->
+            <li><a href="Shop.html" data-key="store">المتجر</a></li> <!-- رابط المتجر -->
+            <li><a href="faq.html">الأسئلة الشائعة</a></li> <!-- رابط الأسئلة الشائعة -->
+            <li><a href="terms.html">الشروط والأحكام</a></li> <!-- رابط الشروط والأحكام -->
+        </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button> <!-- زر لتبديل قائمة التنقل -->
+</header>
+
+<div class="confirmation-message"> <!-- رسالة تأكيد الحجز -->
+    <h2>شكرًا على حجزك!</h2> <!-- عنوان الرسالة -->
+    <p>تم إتمام حجزك بنجاح.</p> <!-- نص تأكيدي -->
+    <div class="details"> <!-- تفاصيل الحجز -->
+        <p><strong>مرجع الحجز:</strong> #123456789</p> <!-- رقم مرجع الحجز -->
+        <p><strong>الباقة:</strong> تجربة جولف فاخرة</p> <!-- اسم الباقة -->
+        <p><strong>تاريخ الوصول:</strong> 2025-03-15</p> <!-- تاريخ الوصول -->
+        <p><strong>عدد الضيوف:</strong> 2</p> <!-- عدد الضيوف -->
+        <p><strong>المبلغ الإجمالي:</strong> $2500</p> <!-- المبلغ الإجمالي للحجز -->
+    </div>
+    <button onclick="window.location.href='r.html'">الذهاب إلى الصفحة الرئيسية</button> <!-- زر للذهاب إلى الصفحة الرئيسية -->
+</div>
+
+<!-- أزرار التكبير والتصغير -->
+<div class="controls"> <!-- عناصر التحكم -->
+    <button onclick="zoomIn()">+</button> <!-- زر لتكبير المحتوى -->
+    <button onclick="zoomOut()">-</button> <!-- زر لتصغير المحتوى -->
+</div>
+
+<script>
+    let zoomLevel = 1; // تعيين مستوى التكبير الافتراضي
+
+    // دالة لتكبير المحتوى
+    function zoomIn() {
+        zoomLevel += 0.1; // زيادة مستوى التكبير
+        updateZoom(); // تحديث التكبير
+    }
+
+    // دالة لتصغير المحتوى
+    function zoomOut() {
+        zoomLevel -= 0.1; // تقليل مستوى التكبير
+        updateZoom(); // تحديث التكبير
+    }
+
+    // دالة لتحديث التكبير أو التصغير
+    function updateZoom() {
+        document.body.style.transform = `scale(${zoomLevel})`; // تطبيق مستوى التكبير على الجسم
+        document.body.style.transformOrigin = 'top center'; // تحديد نقطة الأصل للتكبير
+    }
+
+    // دالة لتبديل رؤية القائمة على الهواتف المحمولة
+    function toggleMenu() {
+        const menu = document.querySelector('nav ul'); // تحديد القائمة
+        menu.classList.toggle('show'); // تبديل حالة القائمة
+    }
+</script>
+
+</body>
+</html>

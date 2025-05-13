@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar"> <!-- تعيين اللغة العربية للصفحة -->
+<head>
+    <meta charset="UTF-8"> <!-- تعيين مجموعة الأحرف المستخدمة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- تحسين عرض الصفحة على الأجهزة المختلفة -->
+    <title>منتجع هول إن ون - الشروط والأحكام</title> <!-- عنوان الصفحة -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* تعيين نوع الخط */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            padding: 0; /* إزالة الحشو الافتراضي */
+            background-color: #645862; /* تعيين لون خلفية الصفحة */
+            text-align: center; /* محاذاة النص في المنتصف */
+        }
+
+        header {
+            background: #c5afcc; /* لون خلفية الهيدر */
+            color: white; /* لون النص داخل الهيدر */
+            padding: 20px; /* إضافة حشو داخل الهيدر */
+            display: flex; /* استخدام flexbox لتوزيع العناصر داخل الهيدر */
+            justify-content: space-between; /* توزيع العناصر بين اليمين واليسار */
+            align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
+            border-bottom: 2px solid #9e7c7c; /* إضافة حد أسفل الهيدر */
+        }
+
+        nav {
+            background: none; /* عدم تعيين خلفية للقائمة */
+            padding: 0; /* إزالة الحشو من القائمة */
+            display: flex; /* توزيع العناصر داخل القائمة */
+            justify-content: center; /* محاذاة العناصر في الوسط */
+            align-items: center; /* محاذاة العناصر عموديًا */
+        }
+
+        nav ul {
+            list-style: none; /* إزالة النقاط من قائمة الروابط */
+            padding: 0; /* إزالة الحشو من القائمة */
+            margin: 0; /* إزالة الهوامش من القائمة */
+            display: flex; /* جعل القائمة تتوزع أفقيًا */
+            gap: 15px; /* إضافة مسافة بين العناصر */
+        }
+
+        nav ul li {
+            display: inline; /* جعل العناصر تظهر كعناصر سطرية */
+        }
+
+        nav ul li a {
+            text-decoration: none; /* إزالة التسطير من الروابط */
+            color: white; /* لون النص داخل الروابط */
+            font-weight: bold; /* جعل النص عريضًا */
+            padding: 10px 20px; /* إضافة حشو حول روابط التنقل */
+            border-radius: 25px; /* جعل الزوايا دائرية */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج في خلفية الروابط */
+        }
+
+        nav ul li a:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير لون الخلفية عند التحويم */
+            transform: scale(1.1); /* تكبير الرابط عند التحويم */
+        }
+
+        .content-section {
+            padding: 20px; /* إضافة حشو داخل قسم المحتوى */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* خلفية متدرجة */
+            color: white; /* لون النص داخل قسم المحتوى */
+        }
+
+        .terms-content {
+            background-color: white; /* لون خلفية محتوى الشروط والأحكام */
+            color: #645862; /* لون النص داخل محتوى الشروط والأحكام */
+            padding: 20px; /* إضافة حشو داخل محتوى الشروط والأحكام */
+            border-radius: 8px; /* جعل الزوايا دائرية */
+            text-align: left; /* محاذاة النص إلى اليسار */
+            max-width: 800px; /* تعيين عرض أقصى لمحتوى الشروط والأحكام */
+            margin: 0 auto; /* جعل المحتوى مركزيًا على الصفحة */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف للمحتوى */
+        }
+
+        .terms-content h2 {
+            font-size: 1.5em; /* تعيين حجم الخط لعناوين الشروط */
+            color: #6c4f98; /* لون عناوين الشروط */
+        }
+
+        .terms-content p {
+            font-size: 1.1em; /* حجم الخط لنص الشروط */
+            color: #555; /* لون النص داخل الفقرات */
+        }
+
+        .terms-content ul {
+            list-style: none; /* إزالة النقاط من القوائم داخل محتوى الشروط */
+            padding: 0; /* إزالة الحشو من القوائمداخل محتوى الشروط */
+        }
+
+        .terms-content ul li {
+            font-size: 1.1em; /* حجم النموذج لقوائم العناصر */
+            margin-bottom: 10px; /* مسافة بين العناصر في القوائم */
+        }
+
+        .resize-buttons {
+            margin-bottom: 20px; /* مسافة أسفل أزرار تغيير حجم النص */
+        }
+
+        .resize-buttons button {
+            background-color: #6c4f98; /* لون خلفية الأزرار */
+            color: white; /* لون النص داخل الأزرار */
+            font-size: 1em; /* حجم الخط داخل الأزرار */
+            padding: 10px 20px; /* إضافة حشو داخل الأزرار */
+            margin: 10px; /* إضافة مسافة حول الأزرار */
+            border: none; /* إزالة الحدود من الأزرار */
+            border-radius: 5px; /* جعل الزوايا دائرية */
+            cursor: pointer; /* تغيير المؤشر إلى يد عند المرور فوق الأزرار */
+        }
+
+        .resize-buttons button:hover {
+            background-color: #c5afcc; /* تغيير لون زر تغيير الحجم عند التحويم */
+        }
+
+        /* Media Queries للتكيف مع الشاشات الصغيرة */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column; /* جعل عناصر الهيدر عمودية */
+                text-align: center; /* محاذاة النص في الوسط */
+            }
+
+            nav ul {
+                flex-direction: column; /* جعل القائمة عمودية */
+                gap: 10px; /* إضافة مسافة بين عناصر القائمة */
+            }
+
+            .terms-content {
+                padding: 15px; /* تقليل الحشو لمحتوى الشروط في الشاشات الصغيرة */
+                max-width: 90%; /* السماح بعرض أقصى بنسبة 90% في الأجهزة الصغيرة */
+            }
+
+            .resize-buttons button {
+                width: 100%; /* جعل الأزرار تتناسب مع عرض الشاشة */
+                padding: 15px; /* زيادة الحشو داخل الأزرار */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="flex: 1; text-align: left;"> <!-- حاوية للنص داخل الهيدر -->
+        <h1 id="pageTitle">منتجع هول إن ون</h1> <!-- عنوان الصفحة -->
+    </div>
+    <nav> <!-- قائمة التنقل -->
+        <ul>
+            <li><a href="index.html" id="homeLink">الصفحة الرئيسية</a></li>
+            <li><a href="e.html" id="packagesLink">الباقات</a></li> <!-- رابط لصفحة الباقات -->
+            <li><a href="facilities.html" id="facilitiesLink">المرافق</a></li> <!-- رابط لصفحة المرافق -->
+            <li><a href="booking.html" id="bookingLink">الحجوزات</a></li> <!-- رابط لصفحة الحجوزات -->
+            <li><a href="contact.html" id="contactLink">التواصل</a></li> <!-- رابط لصفحة التواصل -->
+            <li><a href="Shop.html" data-key="store">المتجر</a></li> <!-- رابط لمتجر المنتجع -->
+            <li><a href="faq.html">الأسئلة الشائعة</a></li> <!-- رابط لصفحة الأسئلة الشائعة -->
+            <li><a href="terms.html">الشروط والأحكام</a></li> <!-- رابط لصفحة الشروط والأحكام -->
+        </ul>
+    </nav>
+</header>
+
+<div class="content-section"> <!-- قسم المحتوى الرئيسي -->
+    <div class="resize-buttons"> <!-- قسم أزرار تغيير حجم النص -->
+        <button onclick="resizeText('increase')">تكبير حجم النص</button> <!-- زر لتكبير النص -->
+        <button onclick="resizeText('decrease')">تصغير حجم النص</button> <!-- زر لتصغير النص -->
+    </div>
+
+    <h2>الشروط والأحكام</h2> <!-- عنوان قسم الشروط والأحكام -->
+
+    <div class="terms-content"> <!-- محتوى الشروط والأحكام -->
+        <h2>1. المقدمة</h2> <!-- عنوان جزء المقدمة -->
+        <p>تتحكم هذه الشروط والأحكام في استخدامك لموقع وخدمات منتجع جالف بارادايس. باستخدامك لموقعنا، فإنك توافق على الالتزام بهذه الشروط</p>
+
+        <h2>2. سياسة الحجز والإلغاء</h2> <!-- عنوان سياسة الحجز والإلغاء -->
+        <ul>
+            <li>يجب إجراء جميع الحجوزات مسبقاً من خلال موقعنا الإلكتروني</li> <!-- شرط الحجز -->
+            <li>يجب أن يتم الإلغاء قبل 48 ساعة على الأقل لاسترداد المبلغ بالكامل</li> <!-- شرط الإلغاء لاسترداد المبلغ -->
+            <li>لن يتم توفير أي استرداد للمبالغ المدفوعة في حالة الإلغاء في غضون 48 ساعة من الحجز المحدد</li> <!-- عدم استرداد في حالة إلغاء اللحظة الأخيرة -->
+        </ul>
+
+        <h2>3. سياسة الخصوصية</h2> <!-- عنوان سياسة الخصوصية -->
+        <p>نحن نحترم خصوصيتك. أي بيانات شخصية يتم جمعها من خلال الموقع سيتم استخدامها فقط لأغراض الحجز ولن يتم مشاركتها مع أطراف ثالثة</p>
+
+        <h2>4. المسؤولية</h2> <!-- عنوان المسؤولية -->
+        <p>منتجع جالف بارادايس غير مسؤول عن أي إصابة شخصية أو تلف للممتلكات قد يحدث خلال إقامتك</p>
+
+        <h2>5. التعديلات على الشروط</h2> <!-- عنوان التعديلات على الشروط -->
+        <p>نحتفظ بالحق في تعديل هذه الشروط في أي وقت. يرجى مراجعتها بشكل دوري</p>
+    </div>
+</div>
+
+<script>
+    // دالة لتغيير حجم المحتوى النصي
+    function resizeText(action) {
+        var content = document.querySelector('.terms-content'); // تحديد محتوى الشروط
+        var currentSize = parseFloat(window.getComputedStyle(content).fontSize); // الحصول على الحجم الحالي للنص
+
+        if (action === 'increase') { // إذا كانت العملية هي التكبير
+            content.style.fontSize = (currentSize * 1.1) + 'px'; // زيادة حجم الخط
+        } else if (action === 'decrease') { // إذا كانت العملية هي التصغير
+            content.style.fontSize = (currentSize * 0.9) + 'px'; // تقليل حجم الخط
+        }
+    }
+</script>
+
+</body>
+</html>

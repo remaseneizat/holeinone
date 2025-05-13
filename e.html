@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- تحديد الترميز المستخدم في الصفحة -->
+    <meta charset="UTF-8">
+    <!-- ضبط العرض على الأجهزة المختلفة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان الصفحة الذي يظهر في شريط المتصفح -->
+    <title id="pageTitle">منتجع هول إن ون - الباقات الخاصة</title>
+    <style>
+        /* تنسيقات الجسم العامة */
+        body {
+            font-family: Arial, sans-serif; /* نوع الخط المستخدم */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            background-color: #645862; /* لون خلفية الصفحة */
+            text-align: center; /* محاذاة النص إلى المركز */
+            transition: transform 0.3s ease; /* تأثير التحجيم عند التغيير */
+        }
+
+        /* تنسيقات الهيدر */
+        header {
+            background: #c5afcc; /* لون خلفية الهيدر */
+            color: white; /* لون النص داخل الهيدر */
+            padding: 20px; /* حشوة داخل الهيدر */
+            display: flex; /* استخدام الفليكس لجعل العناصر داخل الهيدر في صف */
+            justify-content: space-between; /* توزيع العناصر بين الجانبين */
+            align-items: center; /* محاذاة العناصر بشكل رأسي في المركز */
+            border-bottom: 2px solid #9e7c7c; /* حدود أسفل الهيدر */
+        }
+
+        /* تنسيقات القوائم */
+        nav {
+            display: flex; /* استخدام الفليكس لترتيب العناصر في صف */
+            flex-direction: column; /* ترتيب العناصر عموديًا */
+            align-items: center; /* محاذاة العناصر في الوسط */
+            background-color: none; /* لا يوجد خلفية */
+            padding: 10px 0; /* حشوة عمودية */
+        }
+
+        /* تنسيقات قائمة التنقل */
+        .nav-menu {
+            list-style: none; /* إزالة النقاط من القائمة */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            display: flex; /* استخدام الفليكس لتوزيع العناصر */
+            flex-wrap: wrap; /* لف العناصر إلى صفوف جديدة عند الحاجة */
+            justify-content: center; /* محاذاة العناصر في الوسط */
+            max-width: 600px; /* تحديد الحد الأقصى لعروض القائمة */
+            gap: 10px;  /* تقليل المسافة بين الأزرار */
+        }
+
+        /* تنسيقات عناصر القائمة */
+        .nav-menu li {
+            display: inline; /* عرض العناصر في صف */
+        }
+
+        /* تنسيقات الروابط داخل القائمة */
+        .nav-menu a {
+            text-decoration: none; /* إزالة خط تحت النص */
+            color: white; /* لون النص */
+            font-weight: bold; /* سمك الخط */
+            font-size: 16px;  /* تصغير الحجم */
+            padding: 8px 15px; /* حشوة حول النص */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج الألوان في الخلفية */
+            border-radius: 25px; /* زوايا دائرية */
+            transition: background 0.3s, transform 0.3s; /* تأثير عند تغيير الحالة */
+        }
+
+        /* تأثير عند التمرير فوق الروابط */
+        .nav-menu a:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير لون الخلفية */
+            transform: scale(1.05);  /* تقليل حجم التوسيع عند المرور */
+        }
+
+        /* تنسيقات عناصر التحكم */
+        .controls {
+            display: flex; /* استخدام الفليكس لعرض الأزرار في صف */
+            flex-direction: column; /* ترتيب العناصر عموديًا */
+            gap: 8px; /* المسافة بين الأزرار */
+            margin-top: 10px; /* المسافة من الأعلى */
+        }
+
+        /* تنسيقات الأزرار داخل عناصر التحكم */
+        .controls button {
+            text-decoration: none; /* إزالة خط تحت النص */
+            color: white; /* لون النص */
+            font-weight: bold; /* سمك الخط */
+            font-size: 14px;  /* تصغير حجم النص هنا */
+            padding: 10px 20px; /* حشوة داخل الزر */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج الألوان في الخلفية */
+            border-radius: 25px; /* زوايا دائرية */
+            cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+            transition: background 0.3s, transform 0.3s; /* تأثير عند تغيير الحالة */
+            text-align: center;  /* محاذاة النص في المنتصف */
+        }
+
+        /* تأثير عند التمرير فوق الأزرار */
+        .controls button:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير لون الخلفية */
+            transform: scale(1.05); /* تكبير الزر عند التمرير */
+        }
+
+        /* تنسيقات قسم المحتوى */
+        .content-section {
+            padding: 20px; /* حشوة داخل القسم */
+            display: flex; /* استخدام الفليكس لترتيب العناصر */
+            justify-content: center; /* محاذاة العناصر في الوسط */
+            flex-wrap: wrap; /* لف العناصر عند حاجة الصف */
+            gap: 20px; /* المسافة بين العناصر */
+        }
+
+        /* تنسيقات باقات العروض */
+        .package {
+            width: 100%; /* عرض الباقة */
+            margin: 20px 0; /* المسافة من الأعلى والأسفل */
+            text-align: center; /* محاذاة النص في الوسط */
+            border: 1px solid #ddd; /* حدود حول العنصر */
+            padding: 15px; /* حشوة داخل العنصر */
+            border-radius: 8px; /* زوايا دائرية */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل للعنصر */
+            background-color: white; /* لون خلفية الباقة */
+            transition: transform 0.3s ease-in-out; /* تأثير التحجيم عند المرور */
+        }
+
+        /* تأثير عند التمرير فوق الباقة */
+        .package:hover {
+            transform: scale(1.05); /* تكبير الباقة */
+        }
+
+        /* تنسيقات الصور داخل الباقات */
+        .package img {
+            max-width: 100%; /* عرض الصورة بنسبة 100% كحد أقصى */
+            border-radius: 8px; /* زوايا دائرية للصورة */
+            transition: transform 0.3s ease-in-out; /* تأثير التحجيم عند التمرير */
+            cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+        }
+
+        /* تأثير عند الضغط على الصورة */
+        .package img.clicked {
+            transform: scale(1.5); /* تكبير الصورة عند الضغط عليها */
+        }
+
+        /* تنسيقات تفاصيل الباقة */
+        .package-details {
+            margin-top: 15px; /* المسافة من الأعلى */
+        }
+
+        /* تنسيقات عنوان تفاصيل الباقة */
+        .package-details h3 {
+            font-size: 1.5em; /* حجم الخط */
+            color: #6c4f98; /* لون الخط */
+        }
+
+        /* تنسيقات قائمة تفاصيل الباقة */
+        .package-details ul {
+            list-style-type: none; /* إزالة النقاط من القائمة */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+        }
+
+        /* تنسيقات العناصر داخل قائمة تفاصيل الباقة */
+        .package-details ul li {
+            font-size: 1.1em; /* حجم الخط */
+            color: #555; /* لون الخط */
+        }
+
+        /* استعلام وسائط لتنسيق الباقات على الشاشات الأكبر */
+        @media (min-width: 600px) {
+            .package {
+                width: 30%; /* تحديد عرض الباقة في الشاشات الكبيرة */
+            }
+
+            /* إخفاء القائم المنسدلة في الشاشات الكبيرة */
+            .dropdown {
+                display: none;
+            }
+
+            /* تنسيقات قائمة التنقل على الشاشات الكبيرة */
+            .nav-menu {
+                display: flex; /* عرض القائمة */
+                flex-wrap: nowrap; /* منع التفاف العناصر */
+            }
+        }
+
+        /* استعلام وسائط لتنسيق الباقات على الشاشات الأصغر */
+        @media (max-width: 599px) {
+            /* إخفاء قائمة التنقل على الشاشات الصغيرة */
+            .nav-menu {
+                display: none; /* إخفاء القائمة */
+                flex-direction: column; /* ترتيب العناصر عموديًا */
+                text-align: center; /* محاذاة العناصر في المنتصف */
+                width: 100%; /* عرض القائمة 100% */
+            }
+
+            /* عرض الزر لقائمة المنسدلة على الشاشات الصغيرة */
+            .dropdown {
+                display: block; /* إظهار الزر */
+                background-color: #645862; /* لون خلفية الزر */
+                padding: 10px; /* حشوة للزر */
+                color: white; /* لون النص في الزر */
+                font-size: 18px; /* حجم النص */
+                cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+                border: none; /* إزالة الحدود */
+            }
+
+            /* عرض القائمة إذا تم تفعيلها */
+            .nav-menu.show {
+                display: flex; /* عرض القائمة */
+            }
+
+            /* تنسيقات عناصر القائمة في الشاشات الصغيرة */
+            .nav-menu li {
+                padding: 10px 0; /* حشوة عمودية للعنصر */
+            }
+        }
+
+        /* تصغير حجم النص للأزرار الأخيرة */
+        .nav-menu a:last-child, .nav-menu a:nth-last-child(2) {
+            font-size: 12px;  /* تصغير النص */
+        }
+    </style>
+    <script>
+        let zoomLevel = 1; // متغير لتتبع مستوى التكبير
+
+        // دالة لتكبير الصفحة
+        function zoomIn() {
+            zoomLevel += 0.1; // زيادة مستوى التكبير
+            document.body.style.transform = `scale(${zoomLevel})`; // تطبيق التكبير على الجسم
+        }
+
+        // دالة لتصغير الصفحة
+        function zoomOut() {
+            if (zoomLevel > 0.5) { // التأكد من عدم تقليل المستوى إلى أقل من 0.5
+                zoomLevel -= 0.1; // تقليل مستوى التكبير
+                document.body.style.transform = `scale(${zoomLevel})`; // تطبيق التصغير على الجسم
+            }
+        }
+
+        // دالة لتبديل عرض القائمة المنسدلة
+        function toggleDropdown() {
+            document.querySelector('.nav-menu').classList.toggle('show'); // تبديل عرض القائمة المنسدلة
+        }
+
+        // إضافة حدث عند ضغط الصور لتغيير تنسيقها
+        document.querySelectorAll('.package img').forEach(image => {
+            image.addEventListener('click', () => {
+                image.classList.toggle('clicked'); // تبديل الصنف لتكبير الصورة عند النقر عليها
+            });
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <h1 id="pageTitle">منتجع هول إن ون - الباقات الخاصة</h1>
+    <nav>
+        <!-- زر القائمة المنسدلة -->
+        <button class="dropdown" onclick="toggleDropdown()">قائمة</button>
+        <ul class="nav-menu">
+            <li><a href="index.html" id="homeLink">الصفحة الرئيسية</a></li>
+            <li><a href="e.html" id="packagesLink">الباقات</a></li>
+            <li><a href="facilities.html" id="facilitiesLink">المرافق</a></li>
+            <li><a href="booking.html" id="bookingLink">الحجز</a></li>
+            <li><a href="contact.html" id="contactLink">التواصل</a></li>
+            <li><a href="Shop.html" data-key="store">المتجر</a></li>
+            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+            <li><a href="terms.html">الشروط والأحكام</a></li>
+        </ul>
+    </nav>
+    <div class="controls">
+        <button onclick="zoomIn()">+</button> <!-- زر لتكبير المحتوى -->
+        <button onclick="zoomOut()">-</button> <!-- زر لتصغير المحتوى -->
+    </div>
+</header>
+
+<!-- معلومات الباقات الخاصة -->
+<div class="special-package-info">
+    <p id="specialPackageMessageAr">تتوفر باقات خاصة للأحداث الشركات والإقامات الطويلة. يجب على العملاء التواصل مع الشركة لترتيب أي باقات مخصصة.</p>
+</div>
+
+<!-- قسم الباقات -->
+<div class="content-section" id="packagesSection">
+    <h2 id="packagesTitle">باقات جولف حصرية</h2>
+    <!-- باقة 1 -->
+    <div class="package" id="package1">
+        <img src="kodex1213-lTWh2FLKTzU-unsplash.jpg" alt="باقة جولف فاخرة">
+        <div class="package-details">
+            <h3 id="package1Title">تجربة جولف فاخرة</h3>
+            <ul>
+                <li id="package1Item1">7 أيام مع وجبات كاملة في جناح فاخر</li>
+                <li id="package1Item2">7 جولات جولف (18 حفرة لكل جولة)</li>
+                <li id="package1Item3">جولة مرشد في ملعب الغروب</li>
+                <li id="package1Item4">دروس جولف مجانية</li>
+            </ul>
+        </div>
+    </div>
+    <!-- باقة 2 -->
+    <div class="package" id="package2">
+        <img src="البكج الثاني.png" alt="باقة عطلة نهاية الأسبوع">
+        <div class="package-details">
+            <h3 id="package2Title">عطلة نهاية الأسبوع</h3>
+            <ul>
+                <li id="package2Item1">إقامة ليلتين مع إفطار</li>
+                <li id="package2Item2">جولتين من الجولف</li>
+                <li id="package2Item3">جولة حصرية في ملعب الغروب</li>
+                <li id="package2Item4">خدمة نقل مجانية</li>
+            </ul>
+        </div>
+    </div>
+    <!-- باقة 3 -->
+    <div class="package" id="package3">
+        <img src="maria.jpg" alt="باقة استرخاء">
+        <div class="package-details">
+            <h3 id="package3Title">استراحة للاسترخاء</h3>
+            <ul>
+                <li id="package3Item1">إقامة لليلة واحدة مع إفطار كامل</li>
+                <li id="package3Item2">عشاء في مطعم المنتجع</li>
+                <li id="package3Item3">دخول إلى السبا (تطبق رسوم إضافية)</li>
+                <li id="package3Item4">جلسة مساج مجانية</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

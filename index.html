@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- تحديد الترميز المستخدم في الصفحة -->
+    <meta charset="UTF-8">
+    <!-- تحديد حجم العرض الافتراضي للتوافق مع أجهزة الجوال -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان الصفحة الذي يظهر في شريط العنوان في المتصفح -->
+    <title>منتجع هول إن ون</title>
+    <!-- استيراد خطوط من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- تحميل JavaScript بشكل متأخر -->
+    <script defer src="r.js"></script>
+    <style>
+        /* تنسيقات الصفحة الرئيسية */
+        body {
+            font-family: 'Poppins', sans-serif; /* نوع الخط المستخدم */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            background-color: #645862; /* لون الخلفية للصفحة */
+            color: white; /* لون النص */
+            transition: transform 0.3s ease; /* تأثير التغيير بالتحجيم */
+        }
+
+        /* تنسيقات الهيدر */
+        header {
+            background-color: #c5afcc; /* لون خلفية الهيدر */
+            padding: 20px 0; /* حشوة الهيدر */
+            text-align: right; /* محاذاة النص إلى اليمين */
+            position: relative; /* لتحريك العناصر بداخله بشكل نسبي */
+        }
+
+        /* تنسيقات عنوان الصفحة */
+        #title {
+            font-size: 3rem; /* حجم الخط */
+            margin: 0; /* إزالة الهوامش */
+            color: white; /* لون النص */
+            text-align: center; /* محاذاة النص إلى المركز */
+        }
+
+        /* تنسيقات الشعار */
+        .logo {
+            position: absolute; /* يمكن تحريكه بشكل مطلق داخل الهيدر */
+            top: 10px; /* المسافة من الأعلى */
+            left: 10px; /* المسافة من اليسار */
+        }
+
+        /* تنسيقات القائمة */
+        nav {
+            display: flex; /* استخدام نظام الفليكس */
+            flex-direction: column; /* ترتيب العناصر عموديًا */
+            align-items: center; /* محاذاة العناصر إلى المركز */
+            background-color: none; /* لا يوجد لون خلفية */
+            padding: 10px 0; /* حشوة */
+        }
+
+        /* تنسيقات قائمة التنقل */
+        .nav-menu {
+            list-style: none; /* إزالة النقاط من القائمة */
+            padding: 0; /* إزالة الحشوة */
+            margin: 0; /* إزالة الهوامش */
+            display: flex; /* استخدام نظام الفليكس */
+            flex-wrap: wrap; /* لف العناصر عند الحاجة */
+            justify-content: center; /* محاذاة العناصر إلى المركز */
+            max-width: 600px; /* الحد الأقصى للعرض */
+            gap: 15px; /* الفجوة بين العناصر */
+        }
+
+        /* تنسيقات عنصر القائمة */
+        .nav-menu li {
+            display: inline; /* عرض العناصر بالتتابع */
+        }
+
+        /* تنسيقات الروابط في القائمة */
+        .nav-menu a {
+            text-decoration: none; /* إزالة خط تحت النص */
+            color: white; /* لون النص */
+            font-weight: bold; /* سمك الخط */
+            font-size: 18px; /* حجم الخط */
+            padding: 12px 20px; /* الحشوة حول النص */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج لون الخلفية */
+            border-radius: 25px; /* زوايا دائرية */
+            transition: background 0.3s, transform 0.3s; /* تأثير عند تغيير الحالة */
+        }
+
+        /* تأثير عند التمرير على الروابط */
+        .nav-menu a:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير لون الخلفية */
+            transform: scale(1.1); /* تكبير الرابط */
+        }
+
+        /* تنسيقات قسم البطل */
+        .hero {
+            position: relative; /* يمكن تحريك العناصر بداخله بشكل نسبي */
+            height: 35vh; /* ارتفاع القسم */
+            display: flex; /* استخدام نظام الفليكس */
+            justify-content: center; /* محاذاة العناصر إلى المركز */
+            align-items: center; /* محاذاة العناصر رأسيا إلى المركز */
+            background: url('background-image.jpg') no-repeat center center; /* صورة الخلفية */
+            background-size: cover; /* جعل الصورة تغطي المكان بالكامل */
+            padding: 10px; /* الحشوة الداخلية */
+            border: 5px solid #fff; /* حدود بيضاء */
+            border-radius: 15px; /* زوايا دائرية */
+        }
+
+        /* تنسيقات الفيديو داخل قسم البطل */
+        .hero video {
+            width: 35%; /* عرض الفيديو */
+            height: auto; /* ارتفاع تلقائي للحفاظ على النسبة */
+            object-fit: cover; /* تغطية المساحة بالكامل */
+            border-radius: 10px; /* زوايا دائرية */
+        }
+
+        /* تنسيقات معرض الصور */
+        .image-gallery {
+            display: flex; /* استخدام نظام الفليكس */
+            justify-content: center; /* محاذاة المعرض إلى المركز */
+            margin-top: 30px; /* المسافة من الأعلى */
+            gap: 30px; /* الفجوة بين الصور */
+        }
+
+        /* تنسيقات الصور في المعرض */
+        .image-gallery img {
+            width: 200px; /* عرض الصورة */
+            height: 200px; /* ارتفاع الصورة */
+            border-radius: 50%; /* زوايا دائرية لعمل شكل دائري */
+            object-fit: cover; /* تغطية الصورة بالكامل */
+            border: 5px solid #fff; /* حدود بيضاء حول الصور */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* ظل للصورة */
+            transition: transform 0.3s ease-in-out; /* تأثير عند التمرير */
+        }
+
+        /* تأثير عند التمرير على الصور */
+        .image-gallery img:hover {
+            transform: scale(1.15); /* تكبير الصورة */
+        }
+
+        /* تنسيقات روابط المشاركة الاجتماعية */
+        .social-links {
+            display: flex; /* استخدام نظام الفليكس */
+            justify-content: center; /* محاذاة العناصر إلى المركز */
+            gap: 20px; /* الفجوة بين العناصر */
+            margin-top: 40px; /* المسافة من الأعلى */
+        }
+
+        /* تنسيقات الروابط في المشاركة الاجتماعية */
+        .social-links a {
+            text-decoration: none; /* إزالة خط تحت النص */
+            font-size: 20px; /* حجم الخط */
+            color: #1E90FF; /* لون النص */
+            font-weight: bold; /* سمك الخط */
+            transition: color 0.3s, transform 0.3s; /* تأثير عند تغيير الحالة */
+        }
+
+        /* تأثير عند التمرير على روابط المشاركة الاجتماعية */
+        .social-links a:hover {
+            color: #4682B4; /* تغيير لون النص */
+            transform: scale(1.1); /* تكبير الرابط */
+        }
+
+        /* تصميم الأزرار لتكبير وتصغير المحتوى */
+        .zoom-buttons {
+            position: fixed; /* وجودها في موضع ثابت */
+            top: 20px; /* المسافة من الأعلى */
+            right: 10px; /* المسافة من اليمين */
+            display: flex; /* استخدام نظام الفليكس */
+            flex-direction: row; /* ترتيب الأزرار أفقيًا */
+            gap: 5px; /* الفجوة بين الأزرار */
+        }
+
+        /* تنسيقات زر التكبير والتصغير */
+        .zoom-button {
+            background-color: #6c4f98; /* لون الخلفية */
+            color: white; /* لون النص */
+            font-size: 20px; /* حجم الخط */
+            padding: 10px; /* الحشوة الداخلية */
+            border-radius: 50%; /* شكل دائري */
+            cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+            transition: background-color 0.3s, transform 0.3s; /* تأثير عند تغيير الحالة */
+        }
+
+        /* تأثير عند تمرير الفأرة على الزر */
+        .zoom-button:hover {
+            background-color: #c5afcc; /* تغيير لون الخلفية */
+            transform: scale(1.1); /* تكبير الزر */
+        }
+
+        /* استعلام وسائط لتغيير التنسيق على الأجهزة المحمولة */
+        @media screen and (max-width: 768px) {
+            .zoom-buttons {
+                top: 20px; /* المسافة من الأعلى */
+                right: 10px; /* المسافة من اليمين */
+                flex-direction: row; /* ترتيب الأزرار أفقيًا */
+                gap: 10px; /* الفجوة بين الأزرار */
+            }
+
+            /* تنسيقات زر التكبير والتصغير */
+            .zoom-button {
+                width: 50px; /* جعل الزر أصغر */
+                height: 50px; /* جعل الزر أصغر */
+            }
+
+            /* تنسيقات الفيديو في قسم البطل */
+            .hero video {
+                width: 90%; /* جعل الفيديو أكثر تناسبًا مع الشاشات الصغيرة */
+                height: auto; /* ارتفاع تلقائي للحفاظ على النسبة */
+            }
+
+            /* تنسيقات معرض الصور */
+            .image-gallery {
+                flex-direction: column; /* ترتيب الصور عموديًا */
+                gap: 15px; /* الفجوة بين الصور */
+            }
+
+            /* إخفاء القائمة الرئيسية على الشاشات المحمولة */
+            .nav-menu {
+                display: none; /* إخفاء القائمة الأساسية */
+                flex-direction: column; /* ترتيب العناصر عموديًا */
+                width: 100%; /* جعل العرض 100% */
+                text-align: center; /* محاذاة النص إلى المركز */
+                gap: 20px; /* الفجوة بين العناصر */
+            }
+
+            /* تنسيقات عناصر القائمة */
+            .nav-menu li {
+                display: block; /* عرض العناصر في صف واحد */
+                width: 100%; /* جعل العرض 100% */
+            }
+
+            /* عرض القائمة عند تفعيل الزر */
+            .nav-menu.active {
+                display: flex; /* عرض القائمة عند تفعيل الزر */
+            }
+
+            /* إضافة زر القائمة المنسدلة */
+            .menu-toggle {
+                display: block; /* إظهار الزر فقط على الشاشات الصغيرة */
+                background-color: #645862; /* لون الخلفية للزر */
+                color: white; /* لون النص */
+                font-size: 24px; /* حجم الخط */
+                padding: 15px; /* الحشوة الداخلية */
+                border: none; /* إزالة الحدود */
+                cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+                width: 100%; /* جعل العرض 100% */
+                text-align: center; /* محاذاة النص إلى المركز */
+            }
+        }
+
+        /* إخفاء زر القائمة على الشاشات الأكبر من 768px */
+        .menu-toggle {
+            display: none; /* إخفاء الزر على الشاشات الكبيرة */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- شعار المنتجع مع رابط لتحميل الصورة -->
+        <div class="logo">
+            <a href="download Hole In One.png" download="Hole_In_One_Logo.jpg">
+                <img src="download Hole In One.png" alt="شعار المنتجع" width="100">
+            </a>
+        </div>
+
+        <!-- عنوان الصفحة -->
+        <h1 id="title">منتجع هول إن ون</h1>
+
+        <!-- زر القائمة المنسدلة -->
+        <button class="menu-toggle" onclick="toggleMenu()">☰ القائمة</button>
+
+        <!-- قائمة التنقل -->
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" id="homeLink">الصفحة الرئيسية</a></li>
+                <li><a href="e.html" id="packagesLink">الباقات</a></li>
+                <li><a href="facilities.html" id="facilitiesLink">المرافق</a></li>
+                <li><a href="booking.html" id="bookingLink">الحجز</a></li>
+                <li><a href="contact.html" id="contactLink">التواصل</a></li>
+                <li><a href="Shop.html" data-key="store">المتجر</a></li>
+                <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                <li><a href="terms.html">الشروط والأحكام</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- قسم البطل مع فيديو -->
+    <section id="home" class="hero">
+        <video autoplay muted loop>
+            <source src="istockphoto-2165371646-640_adpp_is.mp4" type="video/mp4">
+            متصفحك لا يدعم علامة الفيديو.
+        </video>
+    </section>
+
+    <!-- معرض الصور -->
+    <section class="image-gallery">
+        <img src="قولف.jpg" alt="الصورة 1">
+        <img src="الفندق.jpg" alt="الصورة 2">
+        <img src="فعاليات الموسيقى.jpg" alt="الصورة 3">
+    </section>
+
+    <!-- روابط المشاركة الاجتماعية -->
+    <section class="social-links">
+        <a href="https://www.facebook.com/YourResortPage" target="_blank" title="فيسبوك">
+            <i class="fab fa-facebook"></i> فيسبوك
+        </a>
+        <a href="https://www.instagram.com/YourResortPage" target="_blank" title="إنستغرام">
+            <i class="fab fa-instagram"></i> إنستغرام
+        </a>
+        <a href="https://twitter.com/YourResortPage" target="_blank" title="تويتر">
+            <i class="fab fa-twitter"></i> تويتر
+        </a>
+    </section>
+
+    <!-- أزرار التكبير والتصغير -->
+    <div class="zoom-buttons">
+        <button class="zoom-button" onclick="zoomIn()">+</button>
+        <button class="zoom-button" onclick="zoomOut()">-</button>
+    </div>
+
+    <!-- استيراد أيقونات Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        let scale = 1; // إعداد متغير لتتبع نسبة التكبير
+
+        // وظيفة تكبير الصفحة
+        function zoomIn() {
+            if (scale < 2) { // إذا كانت النسبة أقل من 2
+                scale += 0.1; // زيادة الحجم بمقدار 0.1
+                document.body.style.transform = `scale(${scale})`; // تطبيق التكبير على الجسم
+            }
+        }
+
+        // وظيفة تصغير الصفحة
+        function zoomOut() {
+            if (scale > 0.5) { // إذا كانت النسبة أكبر من 0.5
+                scale -= 0.1; // تقليل الحجم بمقدار 0.1
+                document.body.style.transform = `scale(${scale})`; // تطبيق التصغير على الجسم
+            }
+        }
+
+        // وظيفة التبديل بين إظهار وإخفاء القائمة
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu'); // استعلام عن قائمة التنقل
+            menu.classList.toggle('active'); // تبديل الإظهار والاختفاء
+        }
+    </script>
+</body>
+</html>

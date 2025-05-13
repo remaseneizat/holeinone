@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- تحديد الترميز المستخدم في الصفحة -->
+    <meta charset="UTF-8">
+    <!-- ضبط إعدادات العرض للتوافق مع الأجهزة المختلفة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان الصفحة الذي سيظهر في شريط المتصفح -->
+    <title>منتجع هول إن ون - المرافق</title>
+    <style>
+        /* تنسيق الجسم العام */
+        body {
+            font-family: Arial, sans-serif; /* نوع الخط المستخدم */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            background-color: #645862; /* لون خلفية الصفحة */
+            text-align: center; /* محاذاة النص في الوسط */
+            transition: transform 0.3s ease-in-out; /* تأثير التحجيم عند التغيير */
+        }
+
+        /* تنسيق الهيدر */
+        header {
+            background: #c5afcc; /* لون خلفية الهيدر */
+            color: white; /* لون النص داخل الهيدر */
+            padding: 20px; /* حشوة داخل الهيدر */
+            border-bottom: 2px solid #9e7c7c; /* حدود تحت الهيدر */
+            display: flex; /* استخدام الفليكس لترتيب العناصر */
+            justify-content: space-between; /* توزيع العناصر بين الجانبين */
+            align-items: center; /* محاذاة العناصر رأسياً في المنتصف */
+            flex-wrap: wrap; /* لف العناصر إذا لزم الأمر */
+        }
+
+        /* تنسيق عنوان الهيدر */
+        header h1 {
+            font-size: 1.5em; /* حجم الخط */
+            margin: 0; /* إزالة الهوامش */
+        }
+
+        /* تنسيق عناصر التحكم */
+        .controls {
+            display: flex; /* استخدام الفليكس لترتيب الأزرار */
+            gap: 10px; /* المسافة بين الأزرار */
+        }
+
+        /* تنسيق الأزرار داخل عناصر التحكم */
+        .controls button {
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج الألوان في الخلفية */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            padding: 15px; /* حشوة داخل الزر */
+            border-radius: 50%; /* شكل دائري للأزرار */
+            font-size: 1.5em; /* حجم الخط */
+            cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+            transition: background 0.3s, transform 0.3s; /* تأثير التحجيم وتغيير الخلفية */
+            width: 50px; /* عرض الزر */
+            height: 50px; /* ارتفاع الزر */
+        }
+
+        /* تأثير عند التمرير فوق الأزرار */
+        .controls button:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير لون الخلفية */
+            transform: scale(1.2); /* تكبير الزر */
+        }
+
+        /* تنسيق قائمة التنقل */
+        nav {
+            background: none; /* عدم وجود لون خلفية */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            display: flex; /* استخدام الفليكس لترتيب العناصر */
+            justify-content: center; /* محاذاة العناصر في الوسط */
+            align-items: center; /* محاذاة العناصر رأسياً */
+            width: 100%; /* عرض القائمة بالكامل */
+        }
+
+        /* تنسيق قائمة العناصر في التنقل */
+        nav ul {
+            list-style: none; /* إزالة النقاط من القائمة */
+            padding: 0; /* إزالة الحشوة الافتراضية */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            display: flex; /* استخدام الفليكس لتوزيع العناصر */
+            gap: 15px; /* الفجوة بين العناصر */
+        }
+
+        /* تنسيق كل عنصر في القائمة */
+        nav ul li {
+            display: inline; /* عرض العناصر في صف */
+        }
+
+        /* تنسيق الروابط داخل القائمة */
+        nav ul li a {
+            text-decoration: none; /* إزالة خط تحت النص */
+            color: white; /* لون النص */
+            font-weight: bold; /* سمك الخط */
+            padding: 10px 20px; /* حشوة داخل الرابط */
+            border-radius: 25px; /* زوايا دائرية */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج الألوان الخلفية */
+            transition: transform 0.3s, background 0.3s; /* تأثير التحجيم وتغيير الخلفية */
+        }
+
+        /* تأثير عند التمرير فوق الروابط */
+        nav ul li a:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير لون الخلفية */
+            transform: scale(1.1); /* تكبير الرابط */
+        }
+
+        /* تنسيق قسم المحتوى */
+        .content-section {
+            padding: 20px; /* حشوة داخل القسم */
+            display: flex; /* استخدام الفليكس لترتيب العناصر */
+            flex-wrap: wrap; /* لف العناصر إذا لزم الأمر */
+            justify-content: center; /* محاذاة العناصر في الوسط */
+            gap: 20px; /* الفجوة بين العناصر */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج اللون الخلفي للقسم */
+            border-radius: 10px; /* زوايا دائرية للقسم */
+        }
+
+        /* تنسيق كل مرفق */
+        .facility {
+            width: 30%; /* عرض المرفق */
+            max-width: 300px; /* تحديد عرض أقصى */
+            margin: 10px; /* المسافة من العناصر الأخرى */
+            text-align: center; /* محاذاة النص في الوسط */
+            border: 1px solid #ddd; /* حدود حول العنصر */
+            padding: 15px; /* حشوة داخل المرفق */
+            border-radius: 8px; /* زوايا دائرية */
+            background-color: white; /* لون خلفية المرفق */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل حول المرفق */
+            transition: transform 0.3s ease-in-out; /* تأثير التحجيم عند التمرير */
+        }
+
+        /* تأثير عند التمرير على المرفقات */
+        .facility:hover {
+            transform: scale(1.1); /* تكبير المرفق */
+        }
+
+        /* تنسيق الصور داخل المرفقات */
+        .facility img {
+            max-width: 100%; /* عرض الصورة بنسبة 100% كحد أقصى */
+            border-radius: 8px; /* زوايا دائرية للصورة */
+            transition: transform 0.3s ease-in-out; /* تأثير التحجيم عند التمرير */
+        }
+
+        /* تأثير عند التمرير فوق الصورة داخل المرفق */
+        .facility:hover img {
+            transform: scale(1.1); /* تكبير الصورة عند التمرير */
+        }
+
+        /* إخفاء الزر "قائمة" بشكل افتراضي */
+        .dropdown {
+            display: none; /* إخفاء الزر بشكل افتراضي */
+        }
+
+        /* إخفاء النص "القائمة" بشكل افتراضي */
+        .menu-text {
+            display: none; /* إخفاء النص بشكل افتراضي */
+        }
+
+        /* استعلامات الوسائط لتحسين التوافق مع الأجهزة المحمولة */
+        @media (max-width: 768px) {
+            /* تنسيق عنوان الهيدر للشاشات الصغيرة */
+            header h1 {
+                font-size: 1.2em; /* حجم الخط */
+            }
+
+            /* تنسيق المرفقات للشاشات الصغيرة */
+            .facility {
+                width: 45%; /* عرض أكبر للمرفقات */
+            }
+
+            /* تغيير حجم الأزرار في عناصر التحكم للشاشات الصغيرة */
+            .controls button {
+                font-size: 1em; /* تصغير حجم الأزرار */
+            }
+
+            /* تغيير اتجاه القائمة في الشاشات الصغيرة */
+            nav ul {
+                flex-direction: column; /* ترتيب العناصر عموديًا */
+            }
+
+            /* تنسيق عناصر القائمة */
+            nav ul li {
+                padding: 5px 0; /* المسافة بين عناصر القائمة */
+            }
+
+            /* يظهر الزر "قائمة" فقط في الشاشات الصغيرة */
+            .dropdown {
+                display: block; /* يظهر الزر فقط في الشاشات الصغيرة */
+                background-color: #645862; /* لون خلفية الزر */
+                color: white; /* لون النص */
+                padding: 10px; /* حشوة للزر */
+                font-size: 18px; /* حجم النص */
+                cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
+                border: none; /* إزالة الحدود */
+            }
+
+            /* يظهر النص "القائمة" فقط على الشاشات الصغيرة */
+            .menu-text {
+                display: block; /* يظهر النص */
+                font-size: 1.2em; /* حجم النص */
+                padding: 10px; /* حشوة للنص */
+                color: white; /* لون النص */
+                text-align: center; /* محاذاة النص في الوسط */
+            }
+        }
+
+        /* تنسيق المرفقات على الشاشات الأصغر */
+        @media (max-width: 480px) {
+            .facility {
+                width: 100%; /* عرض المرفق بالكامل على الشاشات الأصغر */
+            }
+
+            /* إخفاء القائمة العادية على الأجهزة المحمولة */
+            nav ul {
+                display: none; /* إخفاء القائمة */
+                flex-direction: column; /* ترتيب العناصر عموديًا */
+                text-align: center; /* محاذاة نص العناصر إلى المركز */
+                width: 100%; /* عرض القائمة بالكامل */
+            }
+
+            /* عرض القائمة إذا كانت تحت التبديل */
+            nav ul.show {
+                display: flex; /* عرض القائمة */
+            }
+
+            /* تنسيق عناصر القائمة في الشاشات الأصغر */
+            nav ul li {
+                padding: 10px 0; /* حشوة عمودية للعناصر */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>منتجع هول إن ون - المرافق</h1> <!-- عنوان الصفحة داخل الهيدر -->
+    <nav>
+        <button class="dropdown" onclick="toggleDropdown()">قائمة</button> <!-- زر القائمة المنسدلة -->
+        <ul>
+            <li><a href="index.html" id="homeLink">الصفحة الرئيسية</a></li>
+            <li><a href="e.html" id="packagesLink">الباقات</a></li> <!-- رابط الباقات -->
+            <li><a href="facilities.html" id="facilitiesLink">المرافق</a></li> <!-- رابط المرافق -->
+            <li><a href="booking.html" id="bookingLink">الحجز</a></li> <!-- رابط الحجز -->
+            <li><a href="contact.html" id="contactLink">التواصل</a></li> <!-- رابط التواصل -->
+            <li><a href="Shop.html" data-key="store">المتجر</a></li> <!-- رابط المتجر -->
+            <li><a href="faq.html">الأسئلة الشائعة</a></li> <!-- رابط الأسئلة الشائعة -->
+            <li><a href="terms.html">الشروط والأحكام</a></li> <!-- رابط الشروط والأحكام -->
+        </ul>
+    </nav>
+    <div class="controls">
+        <button onclick="zoomIn()">+</button> <!-- زر لتكبير المحتوى -->
+        <button onclick="zoomOut()">-</button> <!-- زر لتصغير المحتوى -->
+    </div>
+</header>
+
+<!-- يظهر النص "القائمة" فقط في الهواتف -->
+<p class="menu-text">القائمة</p>
+
+<div class="content-section" id="facilitiesSection"> <!-- قسم المرافق -->
+    <h2>مرافقنا المتميزة</h2> <!-- عنوان قسم المرافق -->
+
+    <div class="facility"> <!-- مرفق 1 -->
+        <img src="Three Championship Golf Courses.jpg" alt="ملعب جولف"> <!-- صورة الملعب -->
+        <h3>ثلاثة ملاعب جولف بطابع البطولة</h3> <!-- عنوان المرفق -->
+    </div>
+    <div class="facility"> <!-- مرفق 2 -->
+        <img src="Hotel accommodation photo of a luxury hotel room overlooking the golf course..jpg" alt="إقامة فندقية"> <!-- صورة الإقامة الفندقية -->
+        <h3>إقامة فندقية فاخرة</h3> <!-- عنوان المرفق -->
+    </div>
+    <div class="facility"> <!-- مرفق 3 -->
+        <img src="مطعم ومقهى الفندق.jpg" alt="تناول الطعام"> <!-- صورة المطاعم والمقاهي -->
+        <h3>المطاعم والمقاهي</h3> <!-- عنوان المرفق -->
+    </div>
+    <div class="facility"> <!-- مرفق 4 -->
+        <img src="Illuminated night golf courses.jpg" alt="تدريب جولف"> <!-- صورة ملعب الجولف المضاء -->
+        <h3>مجموعة تدريب مضاءة</h3> <!-- عنوان المرفق -->
+    </div>
+    <div class="facility"> <!-- مرفق 5 -->
+        <img src="Golf Lessons.jpeg" alt="دروس جولف"> <!-- صورة دروس الجولف -->
+        <h3>دروس جولف</h3> <!-- عنوان المرفق -->
+    </div>
+    <div class="facility"> <!-- مرفق 6 -->
+        <img src="jerome-heuze-99Y-7jGZXlY-unsplash.jpg" alt="تدريب رقمي"> <!-- صورة التدريب الرقمي -->
+        <h3>تدريب جولف رقمي</h3> <!-- عنوان المرفق -->
+    </div>
+    <div class="facility"> <!-- مرفق 7 -->
+        <img src="Golf Service.jpeg" alt="خدمة كادي"> <!-- صورة خدمة الكادي -->
+        <h3>مساعدة كادي</h3> <!-- عنوان المرفق -->
+    </div>
+</div>
+
+<script>
+    // تعيين حجم افتراضي للمحتوى
+    let zoomLevel = 1; // إعداد متغير لتتبع مستوى التكبير
+
+    // دالة لتكبير المحتوى
+    function zoomIn() {
+        zoomLevel += 0.1; // زيادة مستوى التكبير
+        updateZoom(); // تحديث التكبير بعد التغيير
+    }
+
+    // دالة لتصغير المحتوى
+    function zoomOut() {
+        zoomLevel -= 0.1; // تقليل مستوى التكبير
+        updateZoom(); // تحديث التكبير بعد التغيير
+    }
+
+    // تحديث التكبير أو التصغير بناءً على مستوى التكبير
+    function updateZoom() {
+        const elements = document.querySelectorAll('body, .content-section, .facility, h1, h2, h3, p, nav a, .controls button');
+        elements.forEach(element => {
+            element.style.transform = `scale(${zoomLevel})`; // تطبيق التكبير أو التصغير على العناصر
+            element.style.transformOrigin = 'top center'; // تحديد نقطة الأصل للتكبير
+        });
+    }
+
+    // التبديل بين إظهار وإخفاء القائمة المنسدلة
+    function toggleDropdown() {
+        document.querySelector('nav ul').classList.toggle('show'); // تبديل حالة عرض القائمة
+    }
+</script>
+
+</body>
+</html>

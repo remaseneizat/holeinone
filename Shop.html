@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar"> <!-- تعيين اللغة العربية للصفحة -->
+<head>
+    <meta charset="UTF-8"> <!-- تعيين مجموعة الأحرف المستخدمة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes"> <!-- تعيين عرض الصفحة وتعديل قابلية التحجيم -->
+    <title>منتجع هول إن ون - المتجر</title> <!-- عنوان الصفحة -->
+    <script>
+        // دالة لتغيير حجم الخط
+        function changeFontSize(action) {
+            const body = document.body; // الحصول على عنصر body للصفحة
+            const currentSize = window.getComputedStyle(body, null).getPropertyValue('font-size'); // الحصول على الحجم الحالي للخط
+            let newSize = parseFloat(currentSize); // تحويل الحجم الحالي إلى عدد صحيح
+            
+            if (action === 'increase') { // إذا كانت العملية هي زيادة الحجم
+                newSize *= 1.1; // زيادة حجم الخط بنسبة 10%
+            } else if (action === 'decrease') { // إذا كانت العملية هي تقليل الحجم
+                newSize *= 0.9; // تقليل حجم الخط بنسبة 10%
+            }
+            
+            body.style.fontSize = newSize + 'px'; // تطبيق الحجم الجديد
+        }
+        
+        // دالة لتأثير عند المرور بالماوس على العنصر (مثل المنتجات)
+        function mouseOverEffect(element) {
+            element.style.transform = "scale(1.1)"; // تكبير العنصر بنسبة 10%
+            element.style.transition = "transform 0.3s ease-in-out"; // تأثير انتقال سلس
+        }
+        
+        // دالة لإعادة الحجم إلى الوضع الطبيعي عند إيقاف الماوس
+        function mouseOutEffect(element) {
+            element.style.transform = "scale(1)"; // إعادة الحجم الطبيعي
+        }
+        
+        // دالة لإضافة العنصر إلى السلة
+        function addToCart(item) {
+            alert(item + " تم إضافته إلى السلة!"); // عرض تنبيه عند إضافة عنصر إلى السلة
+        }
+
+        // دالة لتبديل رؤية القائمة في الشاشات الصغيرة
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul'); // الحصول على قائمة التنقل
+            menu.classList.toggle('show'); // تغيير ظهور القائمة
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* تعيين نوع الخط */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            padding: 0; /* إزالة الحشو الافتراضي */
+            background-color: #645862; /* لون الخلفية */
+            text-align: center; /* محاذاة النص في المنتصف */
+            font-size: 1rem; /* تعيين حجم الخط الافتراضي */
+        }
+        header {
+            background: #c5afcc; /* لون خلفية الهيدر */
+            color: white; /* لون النص داخل الهيدر */
+            padding: 20px; /* إضافة حشو داخل الهيدر */
+            border-bottom: 2px solid #9e7c7c; /* إضافة خط تحت الهيدر */
+            display: flex; /* استخدام flexbox لتوزيع العناصر */
+            justify-content: space-between; /* توزيع العناصر بين اليمين واليسار */
+            align-items: center; /* محاذاة العناصر في المنتصف عموديًا */
+            flex-wrap: wrap; /* السماح للعناصر باللف في الأسطر التالية عند الحاجة */
+        }
+        nav ul {
+            list-style: none; /* إزالة النقاط من القائمة */
+            padding: 0; /* إزالة الحشو من القائمة */
+            margin: 0; /* إزالة الهوامش من القائمة */
+            display: flex; /* جعل القائمة تتوزع أفقيًا */
+            gap: 15px; /* إضافة مسافة بين العناصر */
+            flex-wrap: wrap; /* السماح للعناصر باللف إذا لم تتسع المساحة */
+        }
+        nav ul li {
+            display: inline; /* عرض العناصر كعناصر سطرية */
+        }
+        nav ul li a {
+            text-decoration: none; /* إزالة التسطير من الروابط */
+            color: white; /* لون النص داخل الروابط */
+            font-weight: bold; /* جعل النص عريض */
+            padding: 10px 20px; /* إضافة حشو للروابط */
+            border-radius: 25px; /* جعل الزوايا دائرية */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج لوني خلفية الرابط */
+            transition: transform 0.3s, background 0.3s; /* تأثير عند التحويم */
+        }
+        nav ul li a:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير التدرج عند التحويم */
+            transform: scale(1.1); /* تكبير الرابط عند التحويم */
+        }
+        .controls {
+            display: flex; /* استخدام flexbox لتوزيع الأزرار */
+            gap: 10px; /* إضافة مسافة بين الأزرار */
+        }
+        .controls button {
+            background: #9e7c7c; /* لون خلفية الأزرار */
+            color: white; /* لون النص داخل الأزرار */
+            border: none; /* إزالة الحدود من الأزرار */
+            padding: 10px; /* إضافة حشو داخل الأزرار */
+            border-radius: 50%; /* جعل الأزرار دائرية */
+            width: 40px; /* عرض الزر */
+            height: 40px; /* ارتفاع الزر */
+            cursor: pointer; /* تغيير المؤشر إلى يد عند المرور فوق الزر */
+            transition: background 0.3s, transform 0.3s; /* تأثير انتقال عند التحويم */
+            font-size: 1.2em; /* تعيين حجم الخط داخل الأزرار */
+        }
+        .controls button:hover {
+            background: #645862; /* تغيير اللون عند التحويم */
+            transform: scale(1.1); /* تكبير الزر عند التحويم */
+        }
+        .store-container {
+            padding: 20px; /* إضافة حشو داخل حاوية المتجر */
+        }
+        .product {
+            margin: 20px 0; /* إضافة مسافة حول كل منتج */
+        }
+        .product img {
+            width: 100px; /* عرض الصورة */
+            height: 100px; /* ارتفاع الصورة */
+            object-fit: cover; /* التأكد من أن الصورة تغطي الحيز المخصص لها */
+            touch-action: manipulation; /* تحسين التفاعل مع الصور في الأجهزة اللمسية */
+        }
+
+        /* ستايل خاص للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* إخفاء القائمة في الشاشات الصغيرة */
+                flex-direction: column; /* عرض العناصر عموديًا */
+                align-items: center; /* محاذاة العناصر في المنتصف */
+                gap: 10px; /* إضافة مسافة بين العناصر */
+            }
+
+            nav ul.show {
+                display: flex; /* إظهار القائمة عند التبديل */
+            }
+
+            .menu-toggle {
+                display: block; /* إظهار زر القائمة في الشاشات الصغيرة */
+                background-color: #9e7c7c; /* لون خلفية الزر */
+                color: white; /* لون النص داخل الزر */
+                border: none; /* إزالة الحدود من الزر */
+                padding: 10px 15px; /* إضافة حشو داخل الزر */
+                border-radius: 50%; /* جعل الزر دائريًا */
+                font-size: 1.5em; /* تعيين حجم الخط داخل الزر */
+                cursor: pointer; /* تغيير المؤشر إلى يد عند المرور فوق الزر */
+                transition: background 0.3s, transform 0.3s; /* تأثير انتقال عند التحويم */
+            }
+
+            .menu-toggle:hover {
+                background: #645862; /* تغيير اللون عند التحويم */
+                transform: scale(1.1); /* تكبير الزر عند التحويم */
+            }
+        }
+
+        /* إخفاء زر القائمة في الشاشات الكبيرة */
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none; /* إخفاء زر القائمة في الشاشات الكبيرة */
+            }
+        }
+
+        /* تحسين التنسيق للأجهزة الصغيرة جداً */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column; /* جعل الهيدر عموديًا في الشاشات الصغيرة جدًا */
+                text-align: center; /* محاذاة النص في المنتصف */
+            }
+            nav ul {
+                flex-direction: column; /* جعل القائمة عمودية */
+                gap: 5px; /* إضافة مسافة بين العناصر */
+            }
+            .controls {
+                margin-top: 10px; /* إضافة مسافة بين الأزرار */
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>منتجع هول إن ون - المتجر</h1>
+    <!-- زر "القائمة" فقط في الشاشات الصغيرة -->
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav>
+        <ul>
+            <!-- قائمة الروابط الرئيسية لمختلف الصفحات -->
+             <li><a href="index.html" id="homeLink">الصفحة الرئيسية</a></li>
+            <li><a href="e.html">الباقات</a></li>
+            <li><a href="facilities.html">المرافق</a></li>
+            <li><a href="booking.html">الحجز</a></li>
+            <li><a href="contact.html">التواصل</a></li>
+            <li><a href="Shop.html">المتجر</a></li>
+            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+            <li><a href="terms.html">الشروط والأحكام</a></li>
+        </ul>
+    </nav>
+    <div class="controls">
+        <button onclick="changeFontSize('increase')">+</button> <!-- زر لزيادة حجم الخط -->
+        <button onclick="changeFontSize('decrease')">-</button> <!-- زر لتقليل حجم الخط -->
+    </div>
+</header>
+
+<div class="store-container">
+    <h2>متجر المنتجع</h2>
+    <!-- عناصر المتجر - كل عنصر يحتوي على صورة ووصف وزر إضافة إلى السلة -->
+    <div class="product" onmouseover="mouseOverEffect(this)" onmouseout="mouseOutEffect(this)">
+        <img src="Luxury Golf Club.jpg" alt="عصا جولف فاخرة"> <!-- صورة المنتج -->
+        <h3>عصا جولف فاخرة</h3>
+        <p>عصا جولف من التيتانيوم لأداء مثالي.</p>
+        <button onclick="addToCart('عصا جولف فاخرة')">أضف إلى السلة</button> <!-- زر لإضافة المنتج إلى السلة -->
+    </div>
+    <div class="product" onmouseover="mouseOverEffect(this)" onmouseout="mouseOutEffect(this)">
+        <img src="كرات قولف.jpg" alt="كرة جولف"> <!-- صورة المنتج -->
+        <h3>كرات جولف احترافية</h3>
+        <p>كرات جولف عالية الجودة لأفضل تجربة لعب.</p>
+        <button onclick="addToCart('كرات جولف احترافية')">أضف إلى السلة</button> <!-- زر لإضافة المنتج إلى السلة -->
+    </div>
+    <div class="product" onmouseover="mouseOverEffect(this)" onmouseout="mouseOutEffect(this)">
+        <img src="حقيبة قولف.jpg" alt="حقيبة جولف"> <!-- صورة المنتج -->
+        <h3>حقيبة جولف فاخرة</h3>
+        <p>حقيبة جولف مصممة لحمل جميع معداتك بسهولة.</p>
+        <button onclick="addToCart('حقيبة جولف فاخرة')">أضف إلى السلة</button> <!-- زر لإضافة المنتج إلى السلة -->
+    </div>
+</div>
+</body>
+</html>

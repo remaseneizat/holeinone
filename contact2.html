@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شكراً - منتجع هول إن ون</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* تعيين الخط الافتراضي */
+            background-color: #645862; /* لون الخلفية */
+            text-align: center; /* محاذاة النص في المنتصف */
+            color: white; /* تعيين لون النص إلى الأبيض */
+            padding: 50px; /* إضافة مسافة حول المحتوى */
+            transition: transform 0.3s ease-in-out; /* تأثير التحويل عند التكبير */
+        }
+        h1 {
+            font-size: 2.5em; /* حجم الخط للعناوين */
+        }
+        p {
+            font-size: 1.2em; /* حجم الخط للنصوص */
+        }
+        .btn {
+            background-color: #9e7c7c; /* لون خلفية الزر */
+            color: white; /* لون النص داخل الزر */
+            padding: 15px 30px; /* مسافة داخل الزر */
+            font-size: 1em; /* حجم الخط داخل الزر */
+            border: none; /* إزالة الحدود من الزر */
+            border-radius: 5px; /* جعل حواف الزر دائرية */
+            cursor: pointer; /* تغيير المؤشر عند المرور فوق الزر */
+            transition: background-color 0.3s; /* تأثير الانتقال عند تغيير الخلفية */
+        }
+        .btn:hover {
+            background-color: #645862; /* تغيير لون الخلفية عند التحويم */
+        }
+        .controls {
+            position: fixed; /* جعل الأزرار ثابتة في المكان */
+            top: 10px; /* تحديد المسافة من الأعلى */
+            left: 10px; /* تحديد المسافة من اليسار */
+            display: flex; /* استخدام التخطيط المرن */
+            gap: 10px; /* إضافة مسافة بين الأزرار */
+        }
+        .controls button {
+            background: #9e7c7c; /* لون خلفية الأزرار */
+            color: white; /* لون النص داخل الأزرار */
+            border: none; /* إزالة الحدود من الأزرار */
+            padding: 10px 15px; /* مسافة داخل الأزرار */
+            border-radius: 50%; /* جعل الأزرار دائرية */
+            width: 40px; /* تحديد عرض الزر */
+            height: 40px; /* تحديد ارتفاع الزر */
+            font-size: 1.2em; /* حجم الخط داخل الزر */
+            cursor: pointer; /* تغيير المؤشر عند المرور فوق الزر */
+            transition: background 0.3s, transform 0.3s; /* تأثيرات الانتقال */
+        }
+        .controls button:hover {
+            background: #645862; /* تغيير اللون عند التحويم */
+            transform: scale(1.1); /* تكبير الزر عند التحويم */
+        }
+    </style>
+    <script>
+        let scale = 1; /* تعيين قيمة مبدئية لمستوى التكبير */
+        
+        // دالة للتكبير
+        function zoomIn() {
+            scale += 0.1; /* زيادة التكبير */
+            document.body.style.transform = `scale(${scale})`; /* تطبيق التكبير على الجسم */
+        }
+
+        // دالة للتصغير
+        function zoomOut() {
+            scale = Math.max(0.8, scale - 0.1); /* تقليل التكبير مع التأكد من أن القيمة لا تقل عن 0.8 */
+            document.body.style.transform = `scale(${scale})`; /* تطبيق التصغير على الجسم */
+        }
+    </script>
+</head>
+<body>
+    <div class="controls">
+        <!-- أزرار التحكم في التكبير والتصغير -->
+        <button onclick="zoomIn()">+</button> <!-- زر تكبير -->
+        <button onclick="zoomOut()">-</button> <!-- زر تصغير -->
+    </div>
+    
+    <h1>شكراً لتواصلك معنا!</h1> <!-- العنوان الرئيسي -->
+    <p>لقد استلمنا رسالتك وسنعود إليك في أقرب وقت ممكن.</p> <!-- النص التوضيحي -->
+    <button class="btn" onclick="window.location.href='index.html';">الرجوع إلى الصفحة الرئيسية</button> <!-- زر الرجوع إلى الصفحة الرئيسية -->
+</body>
+</html>

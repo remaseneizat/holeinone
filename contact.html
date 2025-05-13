@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجع هول إن ون - تواصل معنا</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #645862; /* لون الخلفية */
+            text-align: center;
+            transition: transform 0.3s ease-in-out; /* تأثير الانتقال للزوم */
+        }
+
+        header {
+            background: #c5afcc; /* لون خلفية الرأس */
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between; /* توزيع المسافة بين العناصر */
+            align-items: center; /* محاذاة العناصر عموديًا */
+            border-bottom: 2px solid #9e7c7c; /* حد سفلي للرأس */
+        }
+
+        header h1 {
+            margin: 0; /* إزالة الهامش من العنوان */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px; /* مسافة بين عناصر القائمة */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 25px; /* حواف دائرية للأزرار */
+            background: linear-gradient(45deg, #c5afcc, #645862); /* تدرج لوني للأزرار */
+            transition: transform 0.3s, background 0.3s; /* تأثيرات الانتقال */
+        }
+
+        nav ul li a:hover {
+            background: linear-gradient(45deg, #645862, #c5afcc); /* تغيير لون الخلفية عند التحويم */
+            transform: scale(1.1); /* تكبير الأزرار عند التحويم */
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: flex-end; /* تحريك الأزرار للجهة اليمنى */
+        }
+
+        .controls button {
+            background: #9e7c7c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%; /* أزرار دائرية */
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 1.2em;
+        }
+
+        .controls button:hover {
+            background: #645862;
+            transform: scale(1.1);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #645862;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #9e7c7c;
+        }
+
+        .contact-info {
+            color: white;
+            margin: 20px;
+        }
+
+        /* استعلامات الوسائط لتحسين التوافق مع الأجهزة المحمولة */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .contact-form {
+                width: 90%;
+            }
+
+            nav ul {
+                display: none; /* إخفاء القائمة في الأجهزة الصغيرة */
+            }
+
+            .menu-toggle {
+                display: block; /* إظهار زر القائمة في الأجهزة الصغيرة */
+                background-color: #9e7c7c;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 50%;
+                font-size: 1.5em;
+                cursor: pointer;
+                transition: background 0.3s, transform 0.3s;
+            }
+
+            .menu-toggle:hover {
+                background: #645862;
+                transform: scale(1.1);
+            }
+
+            nav ul.show {
+                display: flex; /* إظهار القائمة عند الضغط على زر القائمة */
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none; /* إخفاء زر القائمة على الشاشات الأكبر من 768px */
+            }
+
+            nav ul {
+                display: flex; /* إظهار القائمة على الشاشات الأكبر من 768px */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            .contact-form {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>منتجع هول إن ون - تواصل معنا</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html" id="homeLink">الصفحة الرئيسية</a></li>
+            <li><a href="e.html">الباقات</a></li>
+            <li><a href="facilities.html">المرافق</a></li>
+            <li><a href="booking.html">الحجز</a></li>
+            <li><a href="contact.html">التواصل</a></li>
+            <li><a href="Shop.html">المتجر</a></li>
+            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+            <li><a href="terms.html">الشروط والأحكام</a></li>
+        </ul>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="controls">
+        <button onclick="zoomIn()">+</button>
+        <button onclick="zoomOut()">-</button>
+    </div>
+</header>
+
+<div class="contact-form">
+    <h3>تواصل معنا</h3>
+    <form action="contact2.html" method="GET">
+        <label for="name">الاسم الكامل:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">عنوان البريد الإلكتروني:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">رسالتك:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit">إرسال الرسالة</button>
+    </form>
+</div>
+
+<div class="contact-info">
+    <p><strong>العنوان:</strong> منتجع هول ان ون، شارع صن شاين، البرتغال</p>
+    <p><strong>البريد الإلكتروني:</strong> contact@golfparadiseresort.com</p>
+    <p><strong>الهاتف:</strong> +351 123 456 789</p>
+</div>
+
+<script>
+    let zoomLevel = 1;
+
+    function zoomIn() {
+        zoomLevel += 0.1;
+        document.body.style.transform = `scale(${zoomLevel})`;
+        document.body.style.transformOrigin = 'top center'; /* تعيين نقطة التحول */
+    }
+
+    function zoomOut() {
+        zoomLevel -= 0.1;
+        document.body.style.transform = `scale(${zoomLevel})`;
+        document.body.style.transformOrigin = 'top center'; /* تعيين نقطة التحول */
+    }
+
+    // Toggle the menu visibility on mobile
+    function toggleMenu() {
+        const menu = document.querySelector('nav ul');
+        menu.classList.toggle('show'); /* إظهار أو إخفاء القائمة */
+    }
+</script>
+
+</body>
+</html>
